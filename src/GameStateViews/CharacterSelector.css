@@ -1,0 +1,13 @@
+
+.character-selector {
+	display: flex;
+}
+
+.character-selector-option {
+	flex: 1;
+}
+
+.character-selector-name:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
