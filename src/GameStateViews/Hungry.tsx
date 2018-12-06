@@ -4,19 +4,27 @@ import * as bike from '../images/bike.png';
 
 /* tslint:disable:jsx-no-lambda */
 
+const end = <GenericViewState render={
+	({next }) => 
+		<div>
+			you've reached the end of the game.&nbsp;
+			<a href="javascript:location.reload()">start over?</a>
+		</div>
+} />;
+
 const Slug = <GenericViewState render={
 	({ next }) =>
 		<div>
 			a travellor on a motorcycle pulls up. he offers you a ride. do you take it?
-			<button>hellz yeah</button>
-			<button>nah man, I don't accept rides from strangers.</button>
+			<button onClick={() => next(end)}>heck yeah</button>
+			<button onClick={() => next(end)}>nah man, I don't accept rides from strangers.</button>
 		</div>
 } />;
 
 const NoWheel = <GenericViewState render={
 	({ next }) =>
 		<div>
-			you have Tim the Toolman Taylors garage worth of tools, but you definitely don't have a spare bike wheel.
+			you have Tim the Toolman Taylor's garage worth of tools, but you definitely don't have a spare bike wheel.
 			<button onClick={() => next(Slug)}>accept nihilism</button>
 		</div>
 } />;
@@ -51,7 +59,7 @@ const EatPBJ = <GenericViewState render={
 
 				your friend patty mayonaise texts you - "Meet me at The Diner in 20 minutes."
 			</pre>
-			<button onClick={() => next(<div>shit</div>)}>cool man.</button>
+			<button onClick={() => next(end)}>cool man.</button>
 		</div>
 }/>;
 
@@ -67,7 +75,7 @@ const MakeFood = <GenericViewState render={
 		<div>
 			you only have ingredients for pb&amp;j. sucks man.
 			<button onClick={() => next(MakePBJ)}>make pb&amp;j</button>
-			<button onClick={() => next(<div>goin to the diner</div>)}>go to diner</button>
+			<button onClick={() => next(end)}>go to diner</button>
 		</div>
 }/>;
 
@@ -81,8 +89,8 @@ const HungryOptions = <GenericViewState render={
 
 const WatchTV = <GenericViewState render={
 	({ next }) => 
-		<div onClick={() => next(<div>end</div>)}>
-			you sure m8?
+		<div onClick={() => next(end)}>
+			are you sure?
 		</div>
 }/>;
 
